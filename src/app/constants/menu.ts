@@ -55,10 +55,16 @@ const data: IMenuItem[] = [
     subs: [
       {
         icon: 'simple-icon-paper-plane',
-        label: 'menu.library',
-        to: `${adminRoot}/library/library`,
-        roles: [UserRole.Admin],
+        label: 'menu.library.search',
+        to: `${adminRoot}/library/search`,
+        //roles: [UserRole.Admin],
       },
+      {
+        icon: 'simple-icon-paper-plane',
+        label: 'menu.library.viewer',
+        to: `${adminRoot}/library/viewer`,
+        //roles: [UserRole.Admin],
+      }
     ],
   },
   // {
