@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent {
+export class SearchComponent implements AfterViewInit {
   item: any;
   title: string;
   author: string;
@@ -19,10 +19,16 @@ export class SearchComponent {
   placeHldr: string = '<img src="https://via.placeholder.com/150">';
   searchData: string;
 
-  constructor(private http: HttpClient) { }
+  @ViewChild('listOutput', { static: true }) outputListRef: ElementRef;
+
+  ngAfterViewInit() {
+    this.outputList = this.outputListRef.nativeElement;
+  }
+
+  constructor(private http: HttpClient) {}
 
   onSearchClick() {
-    this.outputList.innerHTML = '';
+    this.outputListRef.nativeElement.innerHTML = '';
     document.body.style.backgroundImage = "url('')";
     this.searchData = (<HTMLInputElement>document.getElementById('search-box')).value;
 
