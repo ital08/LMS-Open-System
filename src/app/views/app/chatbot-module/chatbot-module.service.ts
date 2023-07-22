@@ -21,8 +21,8 @@ export class ChatbotModuleService {
     const data = {
       model: 'text-davinci-003',
       prompt: inputText,
-      max_tokens: 150,
-      temperature: 0.6,
+      max_tokens: 500,
+      temperature: 0.4,
     };
 
     try {
