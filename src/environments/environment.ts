@@ -4,7 +4,7 @@
 import { UserRole } from '../app/shared/auth.roles';
 
 export const environment = {
-  //contraseña
+  //contraseña 2
   production: false,
   chatGptApiKey: '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',
   buyUrl : 'https://1.envato.market/6NV1b',
