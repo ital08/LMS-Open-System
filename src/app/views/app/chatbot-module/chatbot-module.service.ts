@@ -7,10 +7,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ChatbotModuleService {
-  private apiKey = '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';
+  //private apiKey = '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';
   // private apiUrl = 'https://api.openai.com/v1/engines/text-davinci-003/completions';
 
-  //private apiKey = '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';
+  private apiKey = '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';
   private apiUrl = 'https://api.openai.com/v1/completions';
 
   async getChatbotResponse(inputText: string): Promise<string> {
