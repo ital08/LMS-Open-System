@@ -15,11 +15,19 @@ export class PromedioNotasComponent implements OnInit {
     type: 'bar',
     height: 350,
   };
-
+  categories = [
+    'PC1', // Primera Práctica Calificada
+    'PC2', // Segunda Práctica Calificada
+    'PC3', // Tercera Práctica Calificada
+    'PC4', // Cuarta Práctica Calificada
+    'Parcial', // Examen Parcial
+    'Examen Final',
+    'Sustitutorio', // Examen Sustitutorio
+  ];
   series = [
     {
       name: 'Promedio de Notas',
-      data: [7.5, 8.2, 6.9, 9.0, 8.5], // Datos falsos para el promedio de notas
+      data: [10.5, 11.2, 12.9, 13.0, 10.5, 13.0, 0], // Datos falsos para el promedio de notas
     },
   ];
   constructor() {}

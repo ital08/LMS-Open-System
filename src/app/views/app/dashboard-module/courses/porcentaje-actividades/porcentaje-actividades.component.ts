@@ -11,6 +11,10 @@ export class PorcentajeActividadesComponent implements OnInit {
     align: 'center',
   };
 
+  labels: [
+    'Alumnos con Actividades Completas',
+    'Alumnos con Actividades Incompletas'
+  ];
   chart = {
     type: 'pie',
     height: 350,
