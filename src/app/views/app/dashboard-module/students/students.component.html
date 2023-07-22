@@ -1,1 +1,35 @@
-<p>students works!</p>
+<div class="container">
+  <div class="row">
+    <div class="form-group">
+      <label>Alumno</label>
+      <select class="custom-select" required [(ngModel)]="selectedAlumno">
+        <option *ngFor="let item of alumnos" [value]="item">
+          {{ item.nombreCompleto }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <!-- gráfico de notas de las actividades y tareas que ha realizado el alumno seleccionado -->
+      <div class="chart">
+        <apx-chart
+          [series]="selectedAlumno.notasActividades"
+          [chart]="chart"
+          [title]="title"
+          [dataLabels]="dataLabels"
+        ></apx-chart>
+      </div>
+    </div>
+    <div class="col-6">
+      <!-- ver un gráfico de la evolución de notas que ha tenido el alumno seleccionado según las actividades y tareas -->
+      <div class="chart">
+        <apx-chart
+          [series]="selectedAlumno.evolucionNotas"
+          [chart]="chart1"
+          [title]="title1"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+</div>
