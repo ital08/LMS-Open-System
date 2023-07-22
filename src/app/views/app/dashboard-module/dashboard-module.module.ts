@@ -8,15 +8,23 @@ import { PromedioNotasComponent } from './courses/promedio-notas/promedio-notas.
 import { PorcentajeActividadesComponent } from './courses/porcentaje-actividades/porcentaje-actividades.component';
 import { PorcentajeAsistenciaComponent } from './courses/porcentaje-asistencia/porcentaje-asistencia.component';
 import { CoursesComponent } from './courses/courses.component';
+import { StudentsComponent } from './students/students.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     DashboardModuleComponent,
     EvolucionNotasComponent,
     CoursesComponent,
+    StudentsComponent,
     PromedioNotasComponent,
     PorcentajeActividadesComponent,
     PorcentajeAsistenciaComponent,
   ],
-  imports: [CommonModule, DashboardModuleRoutingModule, NgApexchartsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    DashboardModuleRoutingModule,
+    NgApexchartsModule,
+  ],
 })
 export class DashboardModuleModule {}

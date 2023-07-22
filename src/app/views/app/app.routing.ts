@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     component: AppComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'vien' },
+      { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
       {
         path: 'vien',
         loadChildren: () =>

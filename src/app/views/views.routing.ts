@@ -10,9 +10,14 @@ import { UserRole } from '../shared/auth.roles';
 const adminRoot = environment.adminRoot.substr(1); // path cannot start with a slash
 
 let routes: Routes = [
+  // {
+  //   path: '',
+  //   component: HomeComponent,
+  //   pathMatch: 'full',
+  // },
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: 'user',
     pathMatch: 'full',
   },
   {
