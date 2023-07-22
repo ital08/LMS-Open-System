@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements AfterViewInit {
   item: any;
@@ -30,7 +30,9 @@ export class SearchComponent implements AfterViewInit {
   onSearchClick() {
     this.outputListRef.nativeElement.innerHTML = '';
     document.body.style.backgroundImage = "url('')";
-    this.searchData = (<HTMLInputElement>document.getElementById('search-box')).value;
+    this.searchData = (<HTMLInputElement>(
+      document.getElementById('search-box')
+    )).value;
 
     if (this.searchData === '' || this.searchData === null) {
       this.displayError();
@@ -39,7 +41,6 @@ export class SearchComponent implements AfterViewInit {
         .get(`${this.bookUrl}${this.searchData}&${this.apiKey}`)
         .subscribe(
           (response: any) => {
-            console.log(response);
             if (response.totalItems === 0) {
               alert('no result!.. try again');
             } else {
@@ -56,50 +57,52 @@ export class SearchComponent implements AfterViewInit {
   }
 
   displayResults(response: any) {
-    for (let i = 0; i < response.items.length; i += 2) {
-      this.item = response.items[i];
-      this.title = this.item.volumeInfo.title;
-      this.author = this.item.volumeInfo.authors;
-      this.publisher = this.item.volumeInfo.publisher;
-      this.bookLink = this.item.volumeInfo.previewLink;
-      const bookIsbn = this.item.volumeInfo.industryIdentifiers[1].identifier;
-      this.bookImg = this.item.volumeInfo.imageLinks
-        ? this.item.volumeInfo.imageLinks.thumbnail
-        : this.placeHldr;
+    response.items.forEach((element) => {
+      this.item = element;
+      if (this.item.volumeInfo && this.item.volumeInfo.industryIdentifiers) {
+        this.title = this.item.volumeInfo.title;
+        this.author = this.item.volumeInfo.authors;
+        this.publisher = this.item.volumeInfo.publisher;
+        this.bookLink = this.item.volumeInfo.previewLink;
+        console.log();
+        const bookIsbn =
+          this.item.volumeInfo!.industryIdentifiers[0].identifier!;
+        this.bookImg = this.item.volumeInfo.imageLinks
+          ? this.item.volumeInfo.imageLinks.thumbnail
+          : this.placeHldr;
 
-      const item2 = response.items[i + 1];
-      const title2 = item2.volumeInfo.title;
-      const author2 = item2.volumeInfo.authors;
-      const publisher2 = item2.volumeInfo.publisher;
-      const bookLink2 = item2.volumeInfo.previewLink;
-      const bookIsbn2 = item2.volumeInfo.industryIdentifiers[1].identifier;
-      const bookImg2 = item2.volumeInfo.imageLinks
-        ? item2.volumeInfo.imageLinks.thumbnail
-        : this.placeHldr;
+        // const item2 = response.items[i + 1];
+        // const title2 = item2.volumeInfo.title;
+        // const author2 = item2.volumeInfo.authors;
+        // const publisher2 = item2.volumeInfo.publisher;
+        // const bookLink2 = item2.volumeInfo.previewLink;
+        // const bookIsbn2 = item2.volumeInfo!.industryIdentifiers[0].identifier!;
+        // const bookImg2 = item2.volumeInfo.imageLinks
+        //   ? item2.volumeInfo.imageLinks.thumbnail
+        //   : this.placeHldr;
 
-      // in production code, item.text should have the HTML entities escaped.
-      this.outputList.innerHTML +=
-        '<div class="row mt-4">' +
-        this.formatOutput(
-          this.bookImg,
-          this.title,
-          this.author,
-          this.publisher,
-          this.bookLink,
-          bookIsbn
-        ) +
-        this.formatOutput(
-          bookImg2,
-          title2,
-          author2,
-          publisher2,
-          bookLink2,
-          bookIsbn2
-        ) +
-        '</div>';
-
-      console.log(this.outputList);
-    }
+        // in production code, item.text should have the HTML entities escaped.
+        this.outputList.innerHTML +=
+          '' +
+          this.formatOutput(
+            this.bookImg,
+            this.title,
+            this.author,
+            this.publisher,
+            this.bookLink,
+            bookIsbn
+          ) +
+          // this.formatOutput(
+          //   bookImg2,
+          //   title2,
+          //   author2,
+          //   publisher2,
+          //   bookLink2,
+          //   bookIsbn2
+          // ) +
+          '';
+      }
+    });
   }
 
   formatOutput(
@@ -133,6 +136,4 @@ export class SearchComponent implements AfterViewInit {
   displayError() {
     alert('search term cannot be empty!');
   }
-
-
 }
