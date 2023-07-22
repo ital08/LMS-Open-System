@@ -110,7 +110,7 @@ export class SearchComponent implements AfterViewInit {
     bookLink: string,
     bookIsbn: string
   ) {
-    const viewUrl = 'book.html?isbn=' + bookIsbn; // constructing link for bookviewer
+    const viewUrl = 'app/library/viewer?isbn=' + bookIsbn; // constructing link for bookviewer
     return `<div class="col-lg-6">
       <div class="card" style="">
         <div class="row no-gutters">
