@@ -22,7 +22,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'chatbot',
+        path: 'chat-bot',
         loadChildren: () =>
           import('./chatbot-module/chatbot-module.module').then(
             (m) => m.ChatbotModuleModule

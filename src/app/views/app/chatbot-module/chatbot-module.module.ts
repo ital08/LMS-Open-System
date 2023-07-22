@@ -4,8 +4,11 @@ import { NgModule } from '@angular/core';
 import { ChatbotModuleComponent } from './chatbot-module.component';
 import { ChatbotModuleRoutingModule } from './chatbot-module.routing';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [ChatbotModuleComponent],
-  imports: [CommonModule, ChatbotModuleRoutingModule],
+  providers: [],
+  imports: [CommonModule, ChatbotModuleRoutingModule, FormsModule ],
 })
 export class ChatbotModuleModule {}

@@ -38,14 +38,6 @@ const data: IMenuItem[] = [
     label: 'menu.chat-bot',
     to: `${adminRoot}/chat-bot`,
     roles: [UserRole.Admin, UserRole.Editor],
-    subs: [
-      {
-        icon: 'simple-icon-paper-plane',
-        label: 'menu.sub-menu1',
-        to: `${adminRoot}/chat-bot/sub-menu1`,
-        roles: [UserRole.Admin],
-      },
-    ],
   },
   {
     icon: 'iconsminds-library',

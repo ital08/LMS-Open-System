@@ -1,1 +1,34 @@
-<p>chatbot-module works!</p>
+<div class="content-Chat">
+    <div #chatList class="chatContent">
+        <div class="cardChat" *ngFor="let item of arrayStringRequest,let i = index">
+            <!-- <div class="userLinea">
+                <img alt="Profile Picture" src="/assets/img/profiles/l-1.jpg">
+                <div class="card-body chat-system" style="background-color: #b3aae9;">
+                    <span>{{ arrayStringRequest[i] }}</span>
+                </div>
+            </div> -->
+            <div class="userLinea">
+                <img class="img-user" alt="Profile Picture" src="/assets/img/profiles/l-1.jpg">
+                <div class="card-body chat-system" style="background-color: #b3aae9;">
+                    {{ arrayStringRequest[i] }}
+                </div>
+            </div>
+            <div class="systemLinea">
+                <div class="card-body chat-system responsiveSystem" style="background-color: #dddbeb;">
+                    <img class="img-system" alt="Profile Picture" src="/assets/img/profiles/gifMensaje.gif" *ngIf="(cargandoBoolean && (i+1)==arrayStringRequest.length)">
+                    {{ arrayStringResponsive[i] }}
+                </div>
+                <img class="img-user" alt="Profile Picture" src="/assets/img/profiles/profeVirtual.png">
+            </div>
+            
+        </div>
+    </div>
+    <div class="mb-3 chat-input">
+        <input type="text" class="form-control input-chat" id="inputText" [(ngModel)]="inputText" 
+            placeholder="Ingresa tu mensaje" aria-describedby="emailHelp" (keyup.enter)="getChatbotReply()">
+        <!-- <input [(ngModel)]="inputText" placeholder="Ingresa tu mensaje"> -->
+        <button type="button" class="btn btn-primary button-chat" [disabled]="booleanButton?true:false" (click)="getChatbotReply()">
+            Enviar
+        </button>
+    </div>
+</div>

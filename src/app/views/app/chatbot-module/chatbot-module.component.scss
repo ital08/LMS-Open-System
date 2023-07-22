@@ -1,0 +1,75 @@
+.content-Chat{
+    display: flex;
+    height: 600px;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+}
+.chatContent{
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 1rem;
+    border: solid #D8DBDE 0.1rem;
+    height: -webkit-fill-available;
+}
+.responsiveSystem{
+    align-self: self-end;
+}
+.chatContent::-webkit-scrollbar {
+    height: 180px;
+    width: 5px;
+}
+.chatContent::-webkit-scrollbar-thumb{
+    background: transparent;
+    border-radius: 24px;
+}
+.chat-system{
+    min-width: min-content;
+    max-width: 42%;
+    width: fit-content;
+    border-radius: 1.1rem;
+}
+.cardChat{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.chat-input{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    gap: 24px;
+    //margin-top: -40px;
+    .input-chat{
+        width: 90%;
+        border-radius: 1.1rem;
+    }
+    .button-chat{
+        width: 10%;
+    }
+}
+.userLinea{
+    display: -webkit-box;
+    gap: 12px;
+}
+.systemLinea{
+    display: -webkit-inline-box;
+    -webkit-box-pack: end;
+}
+.img-user{
+    margin-left: 10px;
+    border-radius: 30px;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    border-style: none;
+}
+.img-system{
+    border-radius: 30px;
+    vertical-align: middle;
+    border-style: none;
+    height: 20px;
+}
