@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { cloneDeep, get } from 'lodash';
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class StudentsComponent implements OnInit {
   alumnos: any[] = [
     {
+      id: 0,
       nombreCompleto: 'Juan Pérez',
       notasActividades: [
         {
@@ -23,6 +24,7 @@ export class StudentsComponent implements OnInit {
       ],
     },
     {
+      id: 1,
       nombreCompleto: 'María Gómez',
       notasActividades: [
         {
@@ -38,6 +40,7 @@ export class StudentsComponent implements OnInit {
       ],
     },
     {
+      id: 2,
       nombreCompleto: 'Luis Castro',
       notasActividades: [
         {
@@ -54,13 +57,14 @@ export class StudentsComponent implements OnInit {
     },
     // Agrega más alumnos con datos ficticios similares para tener más ejemplos.
   ];
-
+  series1 = [];
+  series2 = [];
   chart = {
     type: 'line',
     height: 350,
   };
 
-  selectedAlumno: any;
+  selectedAlumno = 0;
 
   title = {
     text: 'Notas de actividades y tareas',
@@ -87,10 +91,18 @@ export class StudentsComponent implements OnInit {
       colors: ['#304758'],
     },
   };
+
   constructor() {}
 
   ngOnInit(): void {
-    // Establecer un alumno predeterminado al cargar el componente.
-    this.selectedAlumno = this.alumnos[0];
+    this.setGraph(0);
+  }
+  onAlumnoSelected($event): void {
+    this.setGraph(this.selectedAlumno);
+  }
+  setGraph(index: number) {
+    this.series1 = get(this.alumnos, `[${index}].notasActividades`);
+
+    this.series2 = get(this.alumnos, `[${index}].evolucionNotas`);
   }
 }

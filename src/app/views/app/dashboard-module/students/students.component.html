@@ -2,8 +2,8 @@
   <div class="row">
     <div class="form-group">
       <label>Alumno</label>
-      <select class="custom-select" required [(ngModel)]="selectedAlumno">
-        <option *ngFor="let item of alumnos" [value]="item">
+      <select class="custom-select" (change)="onAlumnoSelected($event)">
+        <option *ngFor="let item of alumnos" [value]="item.id">
           {{ item.nombreCompleto }}
         </option>
       </select>
@@ -14,7 +14,7 @@
       <!-- gráfico de notas de las actividades y tareas que ha realizado el alumno seleccionado -->
       <div class="chart">
         <apx-chart
-          [series]="selectedAlumno.notasActividades"
+          [series]="series1"
           [chart]="chart"
           [title]="title"
           [dataLabels]="dataLabels"
@@ -25,7 +25,7 @@
       <!-- ver un gráfico de la evolución de notas que ha tenido el alumno seleccionado según las actividades y tareas -->
       <div class="chart">
         <apx-chart
-          [series]="selectedAlumno.evolucionNotas"
+          [series]="series2"
           [chart]="chart1"
           [title]="title1"
         ></apx-chart>

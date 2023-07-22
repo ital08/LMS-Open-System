@@ -5,7 +5,7 @@ import { UserRole } from '../app/shared/auth.roles';
 
 export const environment = {
   production: false,
-  chatGptApiKey: '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',
+  chatGptApiKey: 'sk-llave',
   buyUrl: 'https://1.envato.market/6NV1b',
   SCARF_ANALYTICS: false,
   adminRoot: '/app',
