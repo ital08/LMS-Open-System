@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <app-promedio-notas></app-promedio-notas>
+      <!-- Contenido de la celda 1 -->
+    </div>
+    <div class="col-6">
+      <app-porcentaje-actividades></app-porcentaje-actividades>
+      <!-- Contenido de la celda 2 -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <app-evolucion-notas></app-evolucion-notas>
+      <!-- Contenido de la celda 3 -->
+    </div>
+    <div class="col-6">
+      <div class="chart">
+        <apx-chart
+          [series]="series"
+          [chart]="chart"
+          [title]="title"
+          [xaxis]="{ categories: categories }"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+  <div class="row"></div>
+</div>
