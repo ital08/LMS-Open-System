@@ -15,7 +15,7 @@ export class SearchComponent implements AfterViewInit {
   bookImg: string;
   outputList: HTMLElement;
   bookUrl: string = 'https://www.googleapis.com/books/v1/volumes?q=';
-  apiKey: string = 'key=AIzaSyBqdknpWDf2HzFr3tqtGTOcdR2SRAQys2M'; // Replace with your actual API key
+  apiKey: string = 'llave de google academics'; // Replace with your actual API key
   placeHldr: string = '<img src="https://via.placeholder.com/150">';
   searchData: string;
 
